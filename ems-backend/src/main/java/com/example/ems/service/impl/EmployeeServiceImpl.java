@@ -8,13 +8,14 @@ import com.example.ems.repository.EmployeeRepository;
 import com.example.ems.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
+	@Autowired
     private EmployeeRepository employeeRepository;
 
     @Override
