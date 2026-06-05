@@ -2,17 +2,17 @@
 
 ## Overview
 
-Construction Workforce Management System is a Spring Boot backend application designed to manage workers, construction sites, attendance tracking, overtime calculation, and workforce monitoring.
+Construction Workforce Management System (EMS) is a Spring Boot backend application developed to manage construction workers, sites, attendance tracking, overtime calculation, and workforce monitoring.
 
-The system was developed as part of the Backend Engineering Assignment and focuses on schema design, business rules, caching, data integrity, and API development.
+The project focuses on backend engineering concepts including REST API design, database modeling, Redis caching, PostgreSQL migration, transaction management, and business rule enforcement.
 
 ---
 
-## Forked Project
+## Original Project Reference
 
-Forked from an open-source Employee Management System built using Spring Boot.
+Forked from: employee-management-system-spring-boot-beginner
 
-Reason: It already provided a basic employee management foundation, allowing faster implementation of the workforce attendance and overtime management requirements while focusing on backend engineering tasks.
+Reason: The project provided a basic Spring Boot Employee Management foundation that could be extended into a Construction Workforce Management System while allowing focus on backend engineering requirements.
 
 ---
 
@@ -23,8 +23,8 @@ Reason: It already provided a basic employee management foundation, allowing fas
 * Create Worker
 * Update Worker
 * Delete Worker
-* Get Worker Details
-* Assign Worker to Site
+* Retrieve Worker Details
+* Assign Workers to Sites
 
 ### Site Management
 
@@ -50,17 +50,17 @@ Reason: It already provided a basic employee management foundation, allowing fas
 
 ### Redis Integration
 
-* Active Worker Cache
-* TTL Based Cache Expiration
+* Active Worker Tracking
+* TTL-Based Cache Expiration
 * Graceful Fallback When Redis Is Unavailable
 
 ### PostgreSQL Migration
 
-* Migrated persistence layer from MySQL to PostgreSQL (Supabase)
+* Migrated from MySQL to PostgreSQL using Supabase
 
 ### API Documentation
 
-* Swagger / OpenAPI Integration
+* Swagger/OpenAPI Integration
 
 ---
 
@@ -84,28 +84,11 @@ Reason: It already provided a basic employee management foundation, allowing fas
 
 ### Documentation
 
-* Swagger OpenAPI
+* Swagger / OpenAPI
 
 ### Build Tool
 
 * Maven
-
----
-
-## Project Structure
-
-```text
-controller/
-service/
-service/impl/
-repository/
-entity/
-dto/
-mapper/
-exception/
-config/
-common/
-```
 
 ---
 
@@ -114,8 +97,8 @@ common/
 ### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-cd employee-management-system
+git clone https://github.com/Rajeshpenupothu/employee-management-system.git
+cd employee-management-system/ems-backend
 ```
 
 ### 2. Configure PostgreSQL (Supabase)
@@ -132,22 +115,17 @@ Copy values from:
 application-example.properties
 ```
 
-Example:
+Update:
 
 ```properties
 spring.datasource.url=jdbc:postgresql://YOUR_HOST:5432/postgres
 spring.datasource.username=postgres
 spring.datasource.password=YOUR_PASSWORD
-
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 ```
 
 ### 3. Configure Redis
-
-Install Redis locally.
-
-Example:
 
 ```properties
 spring.data.redis.host=localhost
@@ -155,19 +133,19 @@ spring.data.redis.port=6379
 spring.data.redis.timeout=2000
 ```
 
-### 4. Build Project
+### 4. Build
 
 ```bash
 mvn clean install
 ```
 
-### 5. Run Project
+### 5. Run
 
 ```bash
 mvn spring-boot:run
 ```
 
-### 6. Access Swagger
+### 6. Swagger
 
 ```text
 http://localhost:8080/swagger-ui/index.html
@@ -175,7 +153,7 @@ http://localhost:8080/swagger-ui/index.html
 
 ---
 
-## API Examples (curl)
+## API Examples
 
 ### Create Worker
 
@@ -193,6 +171,12 @@ curl -X POST http://localhost:8080/api/workers \
 }'
 ```
 
+### Create Site
+
+```bash
+curl -X POST http://localhost:8080/api/sites
+```
+
 ### Clock In
 
 ```bash
@@ -203,6 +187,12 @@ curl -X POST "http://localhost:8080/api/attendance/clock-in?workerId=1&siteId=1"
 
 ```bash
 curl -X POST "http://localhost:8080/api/attendance/clock-out?workerId=1"
+```
+
+### Attendance History
+
+```bash
+curl "http://localhost:8080/api/attendance/log?workerId=1&from=2026-06-01&to=2026-06-30"
 ```
 
 ### Overtime Summary
@@ -227,12 +217,12 @@ Used for:
 
 * Requirement analysis
 * Architecture discussions
-* API design reviews
 * Redis integration guidance
 * PostgreSQL migration guidance
 * Documentation assistance
+* API review and validation guidance
 
-All implementation code was reviewed, tested, and integrated manually.
+All implementation, debugging, testing, API verification, and final technical decisions were manually performed and validated.
 
 ---
 
@@ -240,31 +230,31 @@ All implementation code was reviewed, tested, and integrated manually.
 
 ### Schema Design
 
-Worker, Site, AttendanceLog, and OvertimeEntry were separated into dedicated entities to maintain clear domain boundaries and support future scalability.
+Worker, Site, AttendanceLog, and OvertimeEntry were modeled as separate entities to maintain clear domain boundaries and improve maintainability.
 
 ### Redis Caching
 
-Redis was used for active worker tracking to reduce database reads and support near real-time workforce monitoring.
+Redis was used specifically for active worker tracking because attendance status is frequently queried and benefits from low-latency access.
 
-### Overtime Calculation
+### Overtime Processing
 
-Overtime is automatically generated during clock-out processing to ensure data consistency and eliminate manual entry errors.
+Overtime is automatically generated during clock-out processing to ensure consistency between attendance records and overtime entries.
 
 ### PostgreSQL Migration
 
-Supabase PostgreSQL was selected to demonstrate cloud-hosted database integration and migration capability.
+Supabase PostgreSQL was selected to demonstrate migration from MySQL to a cloud-hosted relational database.
 
 ---
 
-## What I Would Improve With More Time
+## Future Improvements
 
 * JWT Authentication
 * Role-Based Access Control
 * Docker Deployment
 * CI/CD Pipeline
-* Frontend Dashboard
+* Automated Integration Tests
+* Reporting Dashboard
 * Audit Logging
-* Automated Testing Suite
 
 ---
 
