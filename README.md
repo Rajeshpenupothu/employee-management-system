@@ -1,92 +1,269 @@
-# 🚀 employee-management-system-spring-boot-beginner - Manage Employees Easily
+# Construction Workforce Management System (EMS)
 
-## 📥 Download Now
-[![Download](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip)](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip)
+## Overview
 
-## 📖 Description
-The Employee Management System is a full-stack web application built with Spring Boot, Spring Web, Spring Data JPA, JavaScript, React, and MySQL. This app allows businesses to manage employee data efficiently. You can add, update, and view employee information easily through a user-friendly interface.
+The Construction Workforce Management System (EMS) is a Spring Boot based backend application designed to manage construction workers, sites, attendance tracking, overtime calculation, and workforce monitoring.
 
-## 📋 Features
-- **User-Friendly Interface**: Navigate through the app seamlessly with clear menus.
-- **Employee Management**: Add and edit employee profiles with ease.
-- **Data Persistence**: All data is stored in a MySQL database, ensuring it's safe and retrievable.
-- **React Frontend**: A responsive layout works well on different devices.
-- **RESTful Services**: Interacts smoothly with the server for real-time data updates.
+The system enables site supervisors and administrators to efficiently manage workers across construction sites while maintaining accurate attendance and overtime records.
 
-## 🔧 System Requirements
-To run this application, ensure you have the following installed:
-- **Java Development Kit (JDK)**: Version 11 or later.
-- **Maven**: For building the application.
-- **MySQL**: To manage the database.
-- **https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip**: Required for running the React front end.
+---
 
-## 🚀 Getting Started
-Follow these steps to get the application running on your local machine:
+## Features
 
-1. **Download the Application**:
-   Visit the [Releases page to download](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip). Select the latest version and download the package.
+### Worker Management
 
-2. **Set Up the Database**:
-   - Open MySQL and create a new database called `employee_management`.
-   - Run the provided SQL script, included in the downloaded package, to set up the necessary tables.
+* Create, update, retrieve, and delete workers
+* Unique employee code validation
+* Worker designation management
+* Site assignment support
 
-3. **Install Back-End Dependencies**:
-   Open the terminal or command prompt. Navigate to the back-end directory in your downloaded folder and run:
-   ```
-   mvn install
-   ```
+### Site Management
 
-4. **Run the Back-End**:
-   In the same terminal window, start the back-end application by using:
-   ```
-   mvn spring-boot:run
-   ```
-   This command will start your server, and you should see output confirming it’s running.
+* Create and manage construction sites
+* Track site details and supervisors
+* Assign workers to sites
 
-5. **Install Front-End Dependencies**:
-   Now, navigate to the front-end directory within your downloaded folder. Run:
-   ```
-   npm install
-   ```
+### Attendance Management
 
-6. **Run the Front-End**:
-   Start the React app by using:
-   ```
-   npm start
-   ```
-   This will launch the application in your default web browser.
+* Worker clock-in and clock-out
+* Attendance history tracking
+* Attendance pagination support
+* Duplicate clock-in prevention
+* Attendance anomaly detection
 
-7. **Access the Application**:
-   Open your browser and go to `http://localhost:3000`. You should now see the Employee Management System interface.
+### Overtime Management
 
-## 🛠️ Troubleshooting
-If you encounter issues:
-- Ensure all required software is installed.
-- Check the terminal for any error messages. These can guide you on what might be wrong.
-- Make sure your database is running and accessible.
+* Automatic overtime calculation
+* 1.5x hourly rate for first 2 overtime hours
+* 2x hourly rate for additional overtime hours
+* Monthly overtime summary
+* Overtime settlement processing
+* Monthly overtime cap validation
 
-## 💬 Support
-For any questions or support, please create an issue on the repository. You can also ask for help from the community. 
+### Redis Integration
 
-## 📝 Contributing
-Feel free to contribute! Fork the repository and submit a pull request with your changes. Your input can help improve the application.
+* Active worker tracking
+* Cache-based workforce monitoring
+* TTL-based cache expiration
+* Graceful fallback when Redis is unavailable
 
-## 📚 Topics
-This project involves several technologies. Here are some key topics related to the application:
-- axios-react
-- java
-- javascript
-- maven
-- react
-- react-components
-- react-router
-- spring-boot
-- spring-data-jpa
-- spring-mvc
-- webapp
+### Exception Handling
 
-## 📥 Another Download Option
-For a direct download, use the link below:
-[Download from Releases](https://github.com/isab111/employee-management-system-spring-boot-beginner/raw/refs/heads/main/ems-backend/src/main/java/com/example/ems/controller/beginner_management_system_boot_spring_employee_2.9-beta.3.zip) 
+* Centralized global exception handling
+* Consistent error responses
+* Business rule validation
 
-Follow these guidelines and enjoy managing your employees with ease!
+### API Documentation
+
+* Swagger / OpenAPI integration
+* Interactive API testing interface
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Java 17
+* Spring Boot 3
+* Spring Web
+* Spring Data JPA
+* Spring Security
+* Hibernate
+
+### Database
+
+* PostgreSQL (Supabase)
+
+### Caching
+
+* Redis
+
+### Documentation
+
+* Swagger / OpenAPI
+
+### Build Tool
+
+* Maven
+
+---
+
+## Project Structure
+
+```text
+controller/
+service/
+service/impl/
+repository/
+entity/
+dto/
+mapper/
+exception/
+config/
+common/
+```
+
+---
+
+## Database Entities
+
+### Worker
+
+* id
+* employeeCode
+* fullName
+* phoneNumber
+* designation
+* dailyWage
+* active
+* siteId
+
+### Site
+
+* id
+* siteCode
+* siteName
+* location
+* supervisorName
+
+### AttendanceLog
+
+* id
+* workerId
+* siteId
+* attendanceDate
+* clockInTime
+* clockOutTime
+* anomalyFlag
+
+### OvertimeEntry
+
+* id
+* workerId
+* workDate
+* overtimeHours
+* overtimeAmount
+* status
+
+---
+
+## API Endpoints
+
+### Worker APIs
+
+```http
+GET    /api/workers
+GET    /api/workers/{id}
+POST   /api/workers
+PUT    /api/workers/{id}
+DELETE /api/workers/{id}
+```
+
+### Site APIs
+
+```http
+GET    /api/sites
+GET    /api/sites/{id}
+POST   /api/sites
+PUT    /api/sites/{id}
+DELETE /api/sites/{id}
+```
+
+### Attendance APIs
+
+```http
+GET    /api/attendance
+GET    /api/attendance/{id}
+POST   /api/attendance
+PUT    /api/attendance/{id}
+DELETE /api/attendance/{id}
+
+POST   /api/attendance/clock-in
+POST   /api/attendance/clock-out
+
+GET    /api/attendance/log
+GET    /api/attendance/active
+```
+
+### Overtime APIs
+
+```http
+GET    /api/overtime
+GET    /api/overtime/{id}
+POST   /api/overtime
+DELETE /api/overtime/{id}
+
+GET    /api/overtime/summary/{workerId}
+POST   /api/overtime/settle/{workerId}
+```
+
+---
+
+## Local Setup
+
+### Clone Repository
+
+```bash
+git clone <your-repository-url>
+cd employee-management-system
+```
+
+### Configure Application
+
+Copy:
+
+```text
+application-example.properties
+```
+
+to:
+
+```text
+application.properties
+```
+
+Update the PostgreSQL and Redis credentials.
+
+### Build Project
+
+```bash
+mvn clean install
+```
+
+### Run Application
+
+```bash
+mvn spring-boot:run
+```
+
+---
+
+## Swagger Documentation
+
+After starting the application:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+---
+
+## Future Enhancements
+
+* JWT Authentication
+* Role Based Access Control
+* Docker Deployment
+* CI/CD Pipeline
+* Frontend Dashboard
+* Reporting and Analytics
+
+---
+
+## Author
+
+Rajesh Penupothu
+
+B.Tech Computer Science Engineering
+
+Java | Spring Boot | PostgreSQL | Redis
